@@ -1,4 +1,4 @@
-import { NextFunction, Request, response, Response, Router } from 'express'
+import { NextFunction, Request, Response, Router } from 'express'
 
 const loginRouter = Router()
 
@@ -69,7 +69,7 @@ loginRouter.get('/', (req: RequestWithBody, res: Response) => {
 })
 
 loginRouter.get('/protected', requireAuth, (req: Request, res: Response) => {
-  res.send('Welcomo to protected route, logged in user')
+  res.send('Welcome to protected route, logged in user')
 })
 
 export { loginRouter } 

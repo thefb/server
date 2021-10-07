@@ -28,18 +28,6 @@ loginRouter.get('/login', (req: Request, res: Response) => {
 </form>`)
 })
 
-loginRouter.post('/login', (req: RequestWithBody, res: Response) => {
-  const { email, password } = req.body
-  if (email && password && email === 'hi@hi.com' && password === 'HelloThere') {
-    // mark this person as logged in
-    req.session = { loggedIn: true }
-    //redirect them to our root route
-    res.redirect('/')
-  } else {
-    res.status(403).json({ message: 'Invalid Credentials' })
-  }
-})
-
 loginRouter.get('/logout', (req: RequestWithBody, res: Response) => {
   req.session = { loggedIn: false }
   res.send(`

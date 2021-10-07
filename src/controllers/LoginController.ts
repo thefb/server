@@ -1,5 +1,10 @@
-import { Request, Response } from 'express'
-import { get, controller} from './decorators'
+import { Request, Response, NextFunction } from 'express'
+import { get, controller } from './decorators'
+
+function logger(req: Request, res: Response, next: NextFunction) {
+  console.log(`Request was made to ${JSON.stringify(req)}`)
+  next()
+}
 
 @controller('/auth')
 class LoginController {

@@ -9,7 +9,6 @@ export function use(middleware: RequestHandler) {
       target,
       key
     ) || []
-    middlewares.push(middleware)
-    Reflect.defineMetadata(MetadataKeys.middleware, middlewares, target, key)
+    Reflect.defineMetadata(MetadataKeys.middleware, [...middlewares, middleware], target, key)
   }
 }

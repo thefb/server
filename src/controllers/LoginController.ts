@@ -38,4 +38,14 @@ class LoginController {
       res.status(403).json({ message: 'Invalid Credentials' })
     }
   }
+  @get('/logout')
+  getLogout(req: Request, res: Response) {
+    req.session = { loggedIn: false }
+    res.send(`
+      <div>
+      <div>You're logged out</div>
+      <a href="/login">Login</a>
+    </div>
+      `)
+  }
 }

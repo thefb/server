@@ -43,9 +43,9 @@ class LoginController {
     req.session = { loggedIn: false }
     res.send(`
       <div>
-      <div>You're logged out</div>
-      <a href="/login">Login</a>
-    </div>
+        <div>You're logged out</div>
+        <a href="/login">Login</a>
+      </div>
       `)
   }
 }

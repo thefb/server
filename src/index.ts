@@ -1,8 +1,8 @@
 import cookieSession from 'cookie-session'
-import express, { Request, Response } from 'express'
+import express from 'express'
 import { loginRouter } from './routes/loginRoutes'
 import './controllers/LoginController'
-import { router as controllerRouter } from './controllers/decorators/controller'
+import { AppRouter } from './AppRouter'
 
 
 const app = express()
@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieSession({ keys: ['fjdhaslkfhjas'] }))
 app.use(loginRouter)
-app.use(controllerRouter)
+app.use(AppRouter.getInstance())
 
 
 app.listen(port, () => {
